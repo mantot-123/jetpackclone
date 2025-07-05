@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://knioqm5v1bm4"]
+
+[ext_resource type="FontFile" uid="uid://buuvwq5tiqtin" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="1_bqqt6"]
+[ext_resource type="PackedScene" uid="uid://ja30xe1tvnul" path="res://scenes/gui/play_button.tscn" id="2_wu84c"]
+[ext_resource type="Script" uid="uid://dl0bplv48ec2" path="res://scripts/gui/play_button.gd" id="3_8ln24"]
+
+[node name="MainMenuScreen" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -265.0
+offset_top = -146.0
+offset_right = 266.0
+offset_bottom = 145.0
+color = Color(0, 0.206841, 0.402588, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_left = -145.0
+offset_top = -39.0
+offset_right = 146.0
+offset_bottom = -15.0
+theme_override_fonts/font = ExtResource("1_bqqt6")
+theme_override_font_sizes/font_size = 24
+text = "Jetpack Clone"
+horizontal_alignment = 1
+
+[node name="PlayButton" parent="." instance=ExtResource("2_wu84c")]
+offset_left = -65.0
+offset_top = -1.0
+offset_right = 69.0
+offset_bottom = 30.0
+script = ExtResource("3_8ln24")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2.5, 2.5)

@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://dx2r6qj27ckba"]
+
+[ext_resource type="Script" uid="uid://d2ph4uucux441" path="res://scripts/game_manager.gd" id="1_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://deak7lmf2s7ta" path="res://scenes/ground.tscn" id="1_uwrxv"]
+[ext_resource type="FontFile" uid="uid://buuvwq5tiqtin" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_iywne"]
+[ext_resource type="PackedScene" uid="uid://cqs1j8onuq4l2" path="res://scenes/player.tscn" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://d3meg3iyxpj2c" path="res://scenes/obstacles.tscn" id="3_iywne"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_lbhrr")
+
+[node name="Ceiling" parent="." instance=ExtResource("1_uwrxv")]
+position = Vector2(767, -344)
+rotation = -3.14159
+
+[node name="Ground" parent="." instance=ExtResource("1_uwrxv")]
+position = Vector2(-769, 215)
+
+[node name="Obstacles" parent="." instance=ExtResource("3_iywne")]
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(0, -64)
+zoom = Vector2(0.75, 0.75)
+
+[node name="Player" parent="." instance=ExtResource("2_yqjtg")]
+position = Vector2(-401, 167)
+
+[node name="ScoreTimer" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_left = -730.0
+offset_top = -477.0
+offset_right = -440.0
+offset_bottom = -394.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_iywne")
+theme_override_font_sizes/font_size = 40
+text = "Score: 0
+"

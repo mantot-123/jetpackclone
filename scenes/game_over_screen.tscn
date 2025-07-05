@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://bmfbmordxmgqw"]
+
+[ext_resource type="FontFile" uid="uid://buuvwq5tiqtin" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="1_iwahs"]
+[ext_resource type="Script" uid="uid://wre7e4ifwl5k" path="res://scripts/game_over_screen.gd" id="1_jw6e5"]
+[ext_resource type="FontFile" uid="uid://doofm5ti14mj6" path="res://assets/fonts/PixelOperator8.ttf" id="2_61w2s"]
+[ext_resource type="PackedScene" uid="uid://ja30xe1tvnul" path="res://scenes/gui/play_button.tscn" id="4_wa2qn"]
+[ext_resource type="Script" uid="uid://dl0bplv48ec2" path="res://scripts/gui/play_button.gd" id="5_cyfkl"]
+
+[node name="GameOverScreen" type="Node2D"]
+script = ExtResource("1_jw6e5")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -265.0
+offset_top = -146.0
+offset_right = 266.0
+offset_bottom = 145.0
+color = Color(0.394821, 1.68458e-07, 0.204135, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_left = -113.0
+offset_top = -42.0
+offset_right = 112.0
+offset_bottom = -18.0
+theme_override_fonts/font = ExtResource("1_iwahs")
+theme_override_font_sizes/font_size = 24
+text = "Game over!"
+horizontal_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_left = -91.0
+offset_top = -6.0
+offset_right = 87.0
+offset_bottom = 17.0
+theme_override_fonts/font = ExtResource("2_61w2s")
+theme_override_font_sizes/font_size = 16
+text = "Score: 0
+"
+horizontal_alignment = 1
+
+[node name="PlayButton" parent="." instance=ExtResource("4_wa2qn")]
+text = "Play again"
+script = ExtResource("5_cyfkl")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2.5, 2.5)
