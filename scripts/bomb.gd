@@ -12,4 +12,4 @@ func _ready() -> void:
 
 func _onBombContact(body: Node2D) -> void:
 	if body is Player:
-		currentGame.gameOver.emit() # Sends a "game over" signal
+		currentGame.gameOver.emit() # Sends a "game over" signal to the current game manager

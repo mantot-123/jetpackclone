@@ -6,15 +6,19 @@ signal gameOver
 
 var score: int = 0
 
-@export var obstacleScrollSpeed: float = 400.0
-@onready var obstacles: Obstacles = $Obstacles
+@export var gameScrollSpeed: float = 500.0
+
+@onready var ground: StaticBody2D = $Ground
+@onready var obstacles: ObstaclesSpawnArea = $Obstacles
 @onready var scoreTimer: Timer = $ScoreTimer
 @onready var scoreLabel: Label = $ScoreLabel
 
 func _ready() -> void:
 	gameOver.connect(_onGameOver)
 	scoreTimer.timeout.connect(_onScoreTimerTimeout)
-	obstacles.scrollSpeed = obstacleScrollSpeed
+	# Set scroll speed for ground and obstacles
+	ground.scrollSpeed = gameScrollSpeed
+	obstacles.scrollSpeed = gameScrollSpeed
 
 
 func _process(delta: float) -> void:

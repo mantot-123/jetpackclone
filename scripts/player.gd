@@ -9,7 +9,8 @@ const JUMP_VELOCITY = -500.0
 var toggleFlying: bool = false
 
 func _physics_process(delta: float) -> void:
-	# Handle jump.
+	# Handle jumping and flying
+	
 	if Input.is_action_pressed("jump"):
 		self.velocity = Vector2(0, JUMP_VELOCITY)
 		toggleFlying = true

@@ -1,4 +1,4 @@
-class_name Obstacles
+class_name ObstaclesSpawnArea
 extends Node2D
 
 @onready var bombSpawnTimer: Timer = $BombSpawnTimer
@@ -16,6 +16,6 @@ func _process(delta: float) -> void:
 func spawnBomb() -> void:
 	var bombScene: PackedScene = preload("res://scenes/bomb.tscn") 
 	var bomb: Bomb = bombScene.instantiate()
-	bomb.global_position = Vector2(800 + scroll, randf_range(-100, 100))
+	bomb.global_position = Vector2(800 + scroll, randf_range(-275, 50))
 	self.get_tree().current_scene.get_node("Obstacles").add_child(bomb)
-	bombSpawnTimer.start(randf_range(0.00, 5.00))
+	bombSpawnTimer.start(randf_range(0.00, 3.50))

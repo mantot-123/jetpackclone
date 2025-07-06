@@ -1,10 +1,72 @@
-[gd_scene load_steps=4 format=3 uid="uid://di2gytsqfh3xc"]
+[gd_scene load_steps=7 format=3 uid="uid://di2gytsqfh3xc"]
 
 [ext_resource type="Texture2D" uid="uid://dhi6dyxshnet" path="res://assets/obstacleBomb.png" id="1_4kkau"]
 [ext_resource type="Script" uid="uid://bom11ds3t1n5w" path="res://scripts/bomb.gd" id="1_vpdcx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vpdcx"]
 radius = 8.0
+
+[sub_resource type="Animation" id="Animation_j15uc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 14)]
+}
+
+[sub_resource type="Animation" id="Animation_vpdcx"]
+resource_name = "float"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.733333, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -10), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.731728, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 14), Vector2(0, 5.35), Vector2(0, 14)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_84slv"]
+_data = {
+&"RESET": SubResource("Animation_j15uc"),
+&"float": SubResource("Animation_vpdcx")
+}
 
 [node name="Bomb" type="Area2D"]
 scale = Vector2(4, 4)
@@ -16,3 +78,9 @@ texture = ExtResource("1_4kkau")
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
 position = Vector2(0, 14)
 shape = SubResource("CircleShape2D_vpdcx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_84slv")
+}
+autoplay = "float"
