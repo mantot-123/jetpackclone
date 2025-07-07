@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cep6w7b6vs7g2"]
+
+[ext_resource type="Script" uid="uid://bheu8jef05ceq" path="res://scripts/gun.gd" id="1_x77fm"]
+
+[node name="Gun" type="Node2D"]
+script = ExtResource("1_x77fm")
+
+[node name="ShootTimer" type="Timer" parent="."]
+wait_time = 0.1

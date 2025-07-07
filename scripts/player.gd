@@ -15,7 +15,7 @@ func _physics_process(delta: float) -> void:
 		self.velocity = Vector2(0, JUMP_VELOCITY)
 		toggleFlying = true
 	else:
-		self.velocity += get_gravity() * delta
+		self.velocity += 2 * get_gravity() * delta
 		if is_on_floor():
 			toggleFlying = false
 

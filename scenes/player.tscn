@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://cqs1j8onuq4l2"]
+[gd_scene load_steps=16 format=3 uid="uid://cqs1j8onuq4l2"]
 
 [ext_resource type="Texture2D" uid="uid://l3ca2hvtjexf" path="res://assets/jetpackManRunningAnim.png" id="1_3vyb7"]
 [ext_resource type="Texture2D" uid="uid://djbxasxwvoqae" path="res://assets/jetpackManFlyingAnim.png" id="1_g2els"]
 [ext_resource type="Script" uid="uid://b28jr2snx2710" path="res://scripts/player.gd" id="1_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://cep6w7b6vs7g2" path="res://scenes/gun.tscn" id="2_dqkch"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
 atlas = ExtResource("1_g2els")
@@ -85,6 +86,9 @@ size = Vector2(98, 113)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_qhqgy")
+
+[node name="Gun" parent="." instance=ExtResource("2_dqkch")]
+position = Vector2(-33, 17)
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(4, 4)

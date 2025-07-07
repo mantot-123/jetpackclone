@@ -1,9 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://deak7lmf2s7ta"]
+[gd_scene load_steps=6 format=3 uid="uid://deak7lmf2s7ta"]
 
 [ext_resource type="Script" uid="uid://dq6tegh16y2dt" path="res://scripts/ground.gd" id="1_mi8v4"]
 [ext_resource type="Texture2D" uid="uid://b5uix0wkutbtj" path="res://assets/foreground.png" id="1_pybca"]
+[ext_resource type="PackedScene" uid="uid://dc3l6d6owpsda" path="res://scenes/hitbox.tscn" id="3_lmksl"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8cj0n"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_w5yvf"]
 
 [node name="Ground" type="StaticBody2D"]
 script = ExtResource("1_mi8v4")
@@ -20,3 +23,12 @@ texture = ExtResource("1_pybca")
 position = Vector2(2306, -240.104)
 scale = Vector2(8.021, 6.00144)
 texture = ExtResource("1_pybca")
+
+[node name="Hitbox" parent="." node_paths=PackedStringArray("belongsTo") instance=ExtResource("3_lmksl")]
+collision_layer = 0
+collision_mask = 2
+belongsTo = NodePath("..")
+
+[node name="HitboxCollisionShape" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("WorldBoundaryShape2D_w5yvf")
+debug_color = Color(0.879382, 0.339433, 0, 0.42)

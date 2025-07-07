@@ -5,6 +5,7 @@ extends Node2D
 signal gameOver
 
 var score: int = 0
+var lastCheckpointScore: int = 0 
 
 @export var gameScrollSpeed: float = 500.0
 
@@ -23,6 +24,12 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	scoreLabel.text = "Score: " + str(score)
+	# Scroll speed increases by 50 to increase difficulty
+	if score == lastCheckpointScore + 100:
+		gameScrollSpeed += 100.0
+		lastCheckpointScore = score
+	ground.scrollSpeed = gameScrollSpeed
+	obstacles.scrollSpeed = gameScrollSpeed
 
 
 func _onGameOver() -> void:
