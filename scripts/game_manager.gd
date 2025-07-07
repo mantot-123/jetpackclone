@@ -28,6 +28,8 @@ func _process(delta: float) -> void:
 	if score == lastCheckpointScore + 100:
 		gameScrollSpeed += 100.0
 		lastCheckpointScore = score
+		obstacles.maxSpawnTime -= 0.25 # Decrease max spawn time of the obstacles
+		obstacles.maxSpawnTime = clamp(obstacles.maxSpawnTime, 0.75, 3.5) # Prevents the spawn time from going below 0.75 seconds
 	ground.scrollSpeed = gameScrollSpeed
 	obstacles.scrollSpeed = gameScrollSpeed
 
