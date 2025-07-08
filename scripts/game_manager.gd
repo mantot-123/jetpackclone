@@ -5,7 +5,8 @@ extends Node2D
 signal gameOver
 
 var score: int = 0
-var lastCheckpointScore: int = 0 
+var lastCheckpointScore: int = 0
+var isLost: bool = false
 
 @export var gameScrollSpeed: float = 500.0
 

@@ -10,10 +10,9 @@ const JUMP_VELOCITY = -500.0
 @onready var animationPlayer: AnimationPlayer = $AnimationPlayer
 
 var toggleFlying: bool = false
-var isLost: bool = false
 
 func _physics_process(delta: float) -> void:
-	if not isLost:
+	if not currentGame.isLost:
 		# Handle jumping and flying
 		if Input.is_action_pressed("jump"):
 			self.velocity = Vector2(0, JUMP_VELOCITY)
