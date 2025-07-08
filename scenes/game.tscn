@@ -27,8 +27,9 @@ shape = SubResource("WorldBoundaryShape2D_iywne")
 position = Vector2(0, -64)
 zoom = Vector2(0.75, 0.75)
 
-[node name="Player" parent="." instance=ExtResource("2_yqjtg")]
+[node name="Player" parent="." node_paths=PackedStringArray("currentGame") instance=ExtResource("2_yqjtg")]
 position = Vector2(-401, 167)
+currentGame = NodePath("..")
 
 [node name="ScoreLabel" type="Label" parent="."]
 offset_left = -730.0
