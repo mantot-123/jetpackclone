@@ -14,6 +14,7 @@ func _onBombContact(body: Node2D) -> void:
 	if body is Player:
 		body.isLost = true
 		body.currentGame.gameScrollSpeed = 0.0
+		body.currentGame.scoreTimer.stop()
 		body.animationPlayer.play("defeat")
 		self.queue_free()
 	elif body is Bullet:
